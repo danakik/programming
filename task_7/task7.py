@@ -27,17 +27,16 @@ class Triangle:
 
     def get_square(self):
         side1, side2, side3 = self.get_side_lengths()
-        semiperimeter = (side1 + side2 + side3) / 2
-        square = math.sqrt(semiperimeter * (semiperimeter - side1) * (semiperimeter - side2) * (semiperimeter - side3))
+        semi_perimeter = (side1 + side2 + side3) / 2
+        square = math.sqrt(semi_perimeter * (semi_perimeter - side1) *
+                           (semi_perimeter - side2) * (semi_perimeter - side3))
         return square
 
     def calculate_distance(self, point_1, point_2):
-        distance = math.sqrt((point_2.x - point_1.x) ** 2 + (point_2.y - point_1.y) ** 2)
-        return distance
+        return math.sqrt((point_2.x - point_1.x) ** 2 + (point_2.y - point_1.y) ** 2)
 
 
 if __name__ == '__main__':
-
     point1 = Point(1, 0)
     point2 = Point(3, 2)
     point3 = Point(1, 4)
@@ -48,5 +47,4 @@ if __name__ == '__main__':
     side_lengths = triangle.get_side_lengths()
     print(side_lengths)
 
-    square = triangle.get_square()
-    print(square)
+    print(triangle.get_square())
