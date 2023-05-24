@@ -9,36 +9,29 @@ def input_validation_month(month):
         print("The entered month does not exist.")
         month = input("Enter the month: ")
 
-    return month.lower()
+    return months[month.lower()], month
 
 
-def input_validation_year(year):
-    while year < 0:
-        print('year cannot be negative')
+def input_validation_year():
+    while True:
         year = validate_input('Enter the year')
-    return year
-
-
-def get_days_in_month(month):
-    return months[month]
+        if year >= 0:
+            return year
+        print('year cannot be negative')
 
 
 def is_leap_year(year):
-    if year % 4 == 0:
-        return True
-    else:
-        return False
+    return 'Ordinary' if year % 4 else 'Leap'
+
+
+def main():
+    """month_validaion = input("Enter the month: ")
+    days, month = input_validation_month(month_validaion)
+    print(f"The number of days in {month} is {days}")"""
+
+    year = input_validation_year()
+    print(f'{is_leap_year(year)} year')
 
 
 if __name__ == '__main__':
-    month_validaion = input("Enter the month: ")
-    month = input_validation_month(month_validaion)
-    days = get_days_in_month(month)
-    print(f"The number of days in {month} is {days}")
-
-    year_validaion = validate_input('Enter the year')
-    year = input_validation_year(year_validaion)
-    if is_leap_year(year):
-        print("Leap year.")
-    else:
-        print("Ordinary year.")
+    main()

@@ -3,7 +3,6 @@ import re
 
 def input_validation_position(position):
     while not re.match(r'^[a-h][1-8]$', position, re.IGNORECASE):
-        print('NONE')
         position = input("Enter the chess position: ")
     return position
 

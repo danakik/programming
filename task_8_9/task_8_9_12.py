@@ -27,7 +27,8 @@ def play_game(player_choice):
     player_choice_lower = player_choice.lower()
 
     if player_choice == computer_choice:
-        print("It's a draw!")
+        x = "It's a draw!"
+
     elif computer_choice in choice_dict[player_choice_lower]:
         print("You win!")
     else:

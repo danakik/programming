@@ -11,14 +11,13 @@ def input_validation_operator(operator):
 
 
 def calculator(num1, num2, operator):
+    result = None
     if operator == '+':
         result = num1 + num2
     elif operator == '-':
         result = num1 - num2
     elif operator == '/':
-        if num2 == 0:
-            result = "Division by zero!"
-        else:
+        if num2:
             result = num1 / num2
     elif operator == '*':
         result = num1 * num2
@@ -37,4 +36,4 @@ if __name__ == '__main__':
     operator_validation = input("Enter the operator (+, -, /, *, mod, pow, div): ")
     operator = input_validation_operator(operator_validation)
     result = calculator(num1, num2, operator)
-    print("Result:", result)
+    print("Result:", result if result is not None else "Division by zero!")
