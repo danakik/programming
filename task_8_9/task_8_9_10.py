@@ -1,15 +1,17 @@
 import re
 
 
-def input_validation_position(position):
-    while not re.match(r'^[a-h][1-8]$', position, re.IGNORECASE):
-        position = input("Enter the chess position: ")
-    return position
+def input_validation_position():
+    location = input('Enter the chess position: ')
+    while not re.match(r'^[a-h][1-8]$', location, re.IGNORECASE):
+        print('No such cell')
+        location = input('Enter the chess position: ')
+    return location
 
 
-def get_square_color(position):
-    file = position[0]
-    rank = int(position[1])
+def get_square_color(location):
+    file = location[0]
+    rank = int(location[1])
 
     if file in ['a', 'c', 'e', 'g']:
         if rank % 2 == 0:
@@ -24,7 +26,5 @@ def get_square_color(position):
 
 
 if __name__ == '__main__':
-    position_validation = input("Enter the chess position: ")
-    position = input_validation_position(position_validation)
-    color = get_square_color(position)
-    print("The square color is", color)
+    position = input_validation_position()
+    print(f'The square color is {get_square_color(position)}')

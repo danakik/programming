@@ -9,16 +9,19 @@ def test_is_leap_year(input_param, expected):
     assert expected == actual
 
 
-@pytest.mark.parametrize('input_param, expected', [("january", "january")])
-def test_input_validation_month(input_param, expected):
-    actual = input_validation_month(input_param)
-    assert expected == actual
+def test_input_validation_month_negative(monkeypatch, capsys):
+    input_values = ['Ghr', 'September']
+    monkeypatch.setattr('builtins.input', lambda _: input_values.pop(0))
+    input_validation_month()
+    captured = capsys.readouterr()
+    assert captured.out == 'The entered month does not exist\n'
 
 
-@pytest.mark.parametrize('input_param, expected', [(200, 200)])
-def test_input_validation_year(input_param, expected):
-    actual = input_validation_year()
-    assert expected == actual
+def test_input_validation_month(monkeypatch):
+    input_values = ['September']
+    monkeypatch.setattr('builtins.input', lambda _: input_values.pop(0))
+    actual = input_validation_month()
+    assert actual == (30, 'September')
 
 
 def test_input_validation_year_negative(monkeypatch, capsys):
@@ -27,3 +30,10 @@ def test_input_validation_year_negative(monkeypatch, capsys):
     input_validation_year()
     captured = capsys.readouterr()
     assert captured.out == 'year cannot be negative\n'
+
+
+def test_input_validation_year(monkeypatch):
+    input_values = ['2023']
+    monkeypatch.setattr('builtins.input', lambda _: input_values.pop(0))
+    actual = input_validation_year()
+    assert actual == 2023
