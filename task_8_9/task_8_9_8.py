@@ -4,10 +4,10 @@ import re
 
 def input_validation_operator():
     pattern = r'^(\+|-|/|mod|pow|div|\*)$'
-    operator = input("Enter the operator (+, -, /, *, mod, pow, div): ")
+    operator = input('Enter the operator (+, -, /, *, mod, pow, div): ')
     while not re.match(pattern, operator, re.IGNORECASE):
         print('No such operator')
-        operator = input("Enter the operator (+, -, /, *, mod, pow, div): ")
+        operator = input('Enter the operator (+, -, /, *, mod, pow, div): ')
     return operator
 
 
@@ -32,8 +32,8 @@ def calculator(num_1, num_2, operator):
 
 
 if __name__ == '__main__':
-    num1 = validate_input_v2("Enter the first number")
-    num2 = validate_input_v2("Enter the second number")
+    num1 = validate_input_v2('Enter the first number')
+    num2 = validate_input_v2('Enter the second number')
     symbol = input_validation_operator()
     result = calculator(num1, num2, symbol)
     print('Result:', result if result is not None else 'Division by zero!')
