@@ -35,6 +35,7 @@ def play_game(player_choice):
         total = 'Computer wins!'
     print(total)
 
+
 def get_player_choice():
     items = r'^(rock|paper|scissors)$'
     while True:
