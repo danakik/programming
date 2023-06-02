@@ -2,12 +2,18 @@ from math import sqrt
 
 
 class Point:
-    def __init__(self, x, y):
-        self._x = x
-        self._y = y
+    def __init__(self, x_coordinate, y_coordinate):
+        self._x = x_coordinate
+        self._y = y_coordinate
 
     def __str__(self):
         return f"({self._x}, {self._y})"
+
+    def get_x(self):
+        return self._x
+
+    def get_y(self):
+        return self._y
 
 
 class Triangle:
@@ -34,7 +40,7 @@ class Triangle:
 
     @staticmethod
     def _calculate_distance(point_1, point_2):
-        return sqrt((point_2._x - point_1._x) ** 2 + (point_2._y - point_1._y) ** 2)
+        return sqrt((point_2.get_x() - point_1.get_x()) ** 2 + (point_2.get_y() - point_1.get_y()) ** 2)
 
 
 if __name__ == '__main__':
