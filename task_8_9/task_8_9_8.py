@@ -1,4 +1,4 @@
-from utils import validate_input_v2
+from utils import validate_input
 import re
 
 
@@ -32,8 +32,8 @@ def calculator(num_1, num_2, operator):
 
 
 if __name__ == '__main__':
-    num1 = validate_input_v2('Enter the first number')
-    num2 = validate_input_v2('Enter the second number')
+    num1 = validate_input('Enter the first number', float)
+    num2 = validate_input('Enter the second number', float)
     symbol = input_validation_operator()
     result = calculator(num1, num2, symbol)
     print('Result:', result if result is not None else 'Division by zero!')
