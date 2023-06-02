@@ -7,4 +7,3 @@ from task_5.task_5_1 import  solve_task
 def test_solve_the_task(input_param_1, expected):
     actual = solve_task(input_param_1)
     assert expected == actual
-    
