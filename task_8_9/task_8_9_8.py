@@ -1,5 +1,5 @@
-from utils import validate_input
 import re
+from utils import validate_input
 
 
 def input_validation_operator():
