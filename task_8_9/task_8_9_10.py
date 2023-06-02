@@ -15,8 +15,8 @@ def get_square_color(location):
 
     if file in ['a', 'c', 'e', 'g']:
         return 'white' if rank % 2 == 0 else 'black'
-    else:
-        return 'black' if rank % 2 == 0 else 'white'
+
+    return 'black' if rank % 2 == 0 else 'white'
 
 
 if __name__ == '__main__':
